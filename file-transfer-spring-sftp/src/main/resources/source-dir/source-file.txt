@@ -1,1 +1,1 @@
-This is the file I want to transfer via SFTP protocol.
+This is the file I want to transfer via Spring Integration Tool kit.

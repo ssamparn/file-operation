@@ -9,5 +9,4 @@ public class FileTransferSpringSftpApplication {
   public static void main(String[] args) {
     SpringApplication.run(FileTransferSpringSftpApplication.class, args);
   }
-
 }

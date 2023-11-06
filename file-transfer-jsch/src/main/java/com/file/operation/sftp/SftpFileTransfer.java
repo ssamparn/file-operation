@@ -23,6 +23,7 @@ public class SftpFileTransfer {
         String sftpPassword = "password";
         Session jschSession = null;
         ChannelSftp sftpChannel = null;
+
         try {
             JSch jsch = new JSch();
             jschSession = jsch.getSession(sftpUserName, sftpHost, Integer.valueOf(sftpPort));
@@ -36,7 +37,6 @@ public class SftpFileTransfer {
             Channel channel = jschSession.openChannel("sftp");
             sftpChannel = (ChannelSftp) channel;
             sftpChannel.connect();
-            sftpChannel.cd("/upload");
 
             System.out.println("Opened Sftp Channel------");
 
@@ -54,7 +54,6 @@ public class SftpFileTransfer {
                 jschSession.disconnect();
             }
         }
-
         System.out.println("Done");
     }
 }
