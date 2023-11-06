@@ -6,19 +6,19 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.5.4</version>
+		<version>3.1.5</version>
 		<relativePath/>
 	</parent>
 
 	<groupId>com.spring-mvc</groupId>
 	<artifactId>file-upload</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 
 	<name>Spring MVC File Upload</name>
 	<description>Demo project for Large file upload in a Spring Boot application</description>
 
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 		<commons-fileupload.version>1.4</commons-fileupload.version>
 	</properties>
 
@@ -45,7 +45,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.18</version>
+			<version>1.18.28</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>

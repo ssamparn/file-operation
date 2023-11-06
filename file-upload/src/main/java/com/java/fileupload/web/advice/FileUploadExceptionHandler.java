@@ -1,6 +1,6 @@
 package com.java.fileupload.web.advice;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.java.fileupload.web.exception.ErrorResponse;
 import com.java.fileupload.web.exception.FileUploadException;

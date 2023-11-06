@@ -1,0 +1,19 @@
+---
+services:
+  sftp:
+    image: atmoz/sftp:latest
+    volumes:
+      - sftp-server:/home/username/upload
+    ports:
+      - "22:22"
+    command: username:password:1001
+    networks:
+      - sftp-server-network
+
+volumes:
+  sftp-server:
+    driver: local
+
+networks:
+  sftp-server-network:
+

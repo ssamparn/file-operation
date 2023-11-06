@@ -2,14 +2,11 @@ package com.java.fileupload.web;
 
 import java.io.IOException;
 import java.io.InputStream;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.java.fileupload.model.UploadFileResponse;
 import com.java.fileupload.web.exception.FileUploadException;
 
-import org.apache.commons.fileupload.FileItemIterator;
-import org.apache.commons.fileupload.FileItemStream;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -50,41 +47,6 @@ public class UploadFileController {
         UploadFileResponse response = createUploadFileResponse(request);
 
         try(InputStream inputStream = file.getInputStream()) {
-            response.setInputStreamType(inputStream.getClass().getName());
-        }
-
-        return new ResponseEntity<>(response, HttpStatus.CREATED);
-    }
-
-    /**
-     * Use commons-fileupload's streaming API to read the uploaded file straight off of the socket, as an InputStream.
-     * This won't work if spring.http.multipart.enabled=true, due to the request being pre-processed before it reaches the ccontroller.
-     */
-    @PostMapping(value = "/file-stream-api",
-        consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
-        produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<UploadFileResponse> uploadFileByStreamingApi(HttpServletRequest request)
-        throws IOException, org.apache.commons.fileupload.FileUploadException {
-
-        boolean isMultipartContent = ServletFileUpload.isMultipartContent(request);
-
-        if (!isMultipartContent) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-
-        UploadFileResponse response = createUploadFileResponse(request);
-
-        ServletFileUpload servletFileUpload = new ServletFileUpload();
-
-        FileItemIterator fileItemIterator = servletFileUpload.getItemIterator(request);
-
-        if (!fileItemIterator.hasNext()) {
-            throw new FileUploadException("FileItemIterator was empty");
-        }
-
-        FileItemStream fileItem = fileItemIterator.next();
-
-        try(InputStream inputStream = fileItem.openStream()) {
             response.setInputStreamType(inputStream.getClass().getName());
         }
 
