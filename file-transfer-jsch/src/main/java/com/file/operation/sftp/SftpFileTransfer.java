@@ -10,13 +10,14 @@ import com.jcraft.jsch.SftpException;
 public class SftpFileTransfer {
 
     public static void main(String[] args) {
-        String sourceFilePath = "/Users/sashankasamantray/my_projects/backend/file-operation/file-transfer-jsch/file-transfer-jsch/src/test/resources/source-dir";
-        String sourceFileName = "/source-file.txt";
+        String sourceFilePath = "/Users/sashankasamantray/my_projects/backend/file-operations/file-operation/file-transfer-jsch/src/test"
+            + "/resources/source-dir/";
+        String sourceFileName = "source-file.txt";
 
         String sftpPath = "/upload";
         String sftpHost = "0.0.0.0";
         String sftpPort = "22";
-        String sftpUserName = "username";
+        String sftpUserName = "user";
         String sftpPassword = "password";
         Session jschSession = null;
         ChannelSftp sftpChannel = null;

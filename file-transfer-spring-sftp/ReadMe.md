@@ -1,0 +1,1 @@
+https://github.com/atmoz/sftp/issues/16

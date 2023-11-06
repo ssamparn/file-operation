@@ -1,0 +1,1 @@
+This is the file I want to transfer via SFTP protocol.
