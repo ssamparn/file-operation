@@ -1,5 +1,7 @@
 package com.file.operation.sftp;
 
+import java.io.File;
+
 import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
@@ -10,9 +12,9 @@ import com.jcraft.jsch.SftpException;
 public class SftpFileTransfer {
 
     public static void main(String[] args) {
-        String sourceFilePath = "/Users/sashankasamantray/my_projects/backend/file-operations/file-operation/file-transfer-jsch/src/test"
-            + "/resources/source-dir/";
-        String sourceFileName = "source-file.txt";
+        File file = new File("file-transfer-jsch/src/test/resources/source/file.txt");
+        String sourceFile = file.getAbsolutePath();
+        System.out.println(sourceFile);
 
         String sftpPath = "/upload";
         String sftpHost = "0.0.0.0";
@@ -38,7 +40,7 @@ public class SftpFileTransfer {
 
             System.out.println("Opened Sftp Channel------");
 
-            sftpChannel.put(sourceFilePath + sourceFileName, sftpPath);
+            sftpChannel.put(sourceFile, sftpPath);
             System.out.println("Copied file to Sftp Server------");
 
             sftpChannel.disconnect();
